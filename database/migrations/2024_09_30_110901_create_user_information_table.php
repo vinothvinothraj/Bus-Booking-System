@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('nic_id'); 
             $table->enum('gender', ['male', 'female', 'other']); 
             $table->integer('loyalty_points')->default(0); 
-            $table->enum('loyalty_tier', ['basic', 'silver', 'gold', 'platinum'])->default('basic'); 
+            $table->enum('loyalty_tier', ['basic', 'silver', 'gold', 'platinum'])->default('basic');
+            $table->enum('user_type', ['admin', 'driver', 'conductor', 'customer'])->default('customer');  
             $table->timestamps(); 
         });
     }

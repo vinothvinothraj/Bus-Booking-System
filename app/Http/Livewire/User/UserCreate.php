@@ -14,49 +14,72 @@ class UserCreate extends Component
     public $last_name;
     public $email;
     public $password;
-
     public $confirm_password;
     public $nic_id;
     public $gender;
-
-    public $title = '';
-    public $description = '';
+    public $user_type;
 
     protected $rules = [
         'first_name' => 'required|string|max:255',
         'last_name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|string|min:8',
-        'confirm_password' => 'required|string|min:8',
+        'confirm_password' => 'required|string|min:8|same:password',
         'nic_id' => 'required|string|max:20|unique:user_information,nic_id',
-        'gender' => 'required|string|in:male,female',
+        'gender' => 'required|string|in:male,female,other',
+        'user_type' => 'required|string|in:admin,driver,conductor,customer',
     ];
+
     public function submitForm()
     {
-        
+        $this->validate();
+
         $user = User::create([
             'name' => $this->first_name . ' ' . $this->last_name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);
 
-        $userInformationData = [
+        UserInformation::create([
             'user_id' => $user->id,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
+            'user_type' => $this->user_type,
             'nic_id' => $this->nic_id,
-            'gender' => 'male',
-            'loyalty_points' => 0, 
-            'loyalty_tier' => 'basic', 
-        ];
-
-        UserInformation::create($userInformationData);
-
-        $this->reset([
-            'first_name', 'last_name', 'email', 'password', 'confirm_password', 'nic_id'
+            'gender' => $this->gender,
+            'loyalty_points' => 0,
+            'loyalty_tier' => 'basic',
         ]);
 
-        session()->flash('message', 'User and associated information created successfully.');
+        
+        $this->resetForm();
+
+        // $this->notification()->send([
+        //     'icon' => 'info',
+        //     'title' => 'Success1',
+        //     'description' => 'User Created Successfully!',
+        // ]);
+
+        
+    }
+
+    public function goBack()
+    {
+        return redirect('/users');
+    }
+
+    public function resetForm()
+    {
+        $this->first_name = '';
+        $this->last_name = '';
+        $this->email = '';
+        $this->password = '';
+        $this->confirm_password = '';
+        $this->nic_id = '';
+        $this->gender = '';
+        $this->user_type = '';
+
+        $this->resetValidation();
     }
 
     public function render()

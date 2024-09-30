@@ -16,7 +16,8 @@ class UserInformation extends Model
         'first_name',      
         'last_name',       
         'nic_id',          
-        'gender',          
+        'gender',    
+        'user_type',     
         'loyalty_points',   
         'loyalty_tier',    
     ];
