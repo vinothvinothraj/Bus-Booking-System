@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Livewire\User\Index;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\User\UserCreate;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,3 +17,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/users', Index::class)->name('users');
+Route::get('/users/create', UserCreate::class)->name('users.create');
