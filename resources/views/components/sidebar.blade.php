@@ -9,5 +9,9 @@
         <a href="{{ route('users') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
             Users
         </a>
+        <a href="{{ route('services') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            Services
+        </a>
+
     </nav>
 </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Services\ServiceCreate;
+use App\Http\Livewire\Services\ServiceIndex;
 use App\Http\Livewire\User\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\User\UserCreate;
@@ -20,3 +22,6 @@ Route::middleware([
 
 Route::get('/users', Index::class)->name('users');
 Route::get('/users/create', UserCreate::class)->name('users.create');
+
+Route::get('/services', ServiceIndex::class)->name('services');
+Route::get('/services/create', ServiceCreate::class)->name('services.create');
