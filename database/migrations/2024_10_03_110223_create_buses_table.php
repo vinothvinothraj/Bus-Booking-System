@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('capacity');
             $table->foreignId('driver_id')->constrained('user_information')->onDelete('cascade'); 
             $table->foreignId('conductor_id')->constrained('user_information')->onDelete('cascade'); 
-            $table->string('bus_type');
+            $table->enum('bus_type', ['normal', 'standard', 'luxury']);
             $table->timestamps();
         });
     }
