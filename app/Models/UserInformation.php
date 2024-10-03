@@ -26,4 +26,14 @@ class UserInformation extends Model
     {
         return $this->belongsTo(User::class); 
     }
+
+    public function busAsDriver()
+    {
+        return $this->hasMany(Bus::class, 'driver_id');
+    }
+
+    public function busAsConductor()
+    {
+        return $this->hasMany(Bus::class, 'conductor_id');
+    }
 }

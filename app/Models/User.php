@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserInformation::class);
     }
+
+    public function points()
+    {
+        return $this->hasMany(Point::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
