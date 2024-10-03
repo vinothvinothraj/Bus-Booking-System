@@ -18,6 +18,9 @@
         <a href="{{ route('route-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
             Routes Details
         </a>
+        <a href="{{ route('time-slots-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            TimeSlot Details
+        </a>
 
     </nav>
 </div>
