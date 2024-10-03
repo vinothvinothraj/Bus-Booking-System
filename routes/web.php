@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Livewire\BusDetails\BusDetailsCreate;
-use App\Http\Livewire\BusDetails\BusDetailsIndex;
-use App\Http\Livewire\Services\ServiceCreate;
-use App\Http\Livewire\Services\ServiceIndex;
 use App\Http\Livewire\User\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\User\UserCreate;
+use App\Http\Livewire\Services\ServiceIndex;
+use App\Http\Livewire\Services\ServiceCreate;
+use App\Http\Livewire\RoutesDetails\RoutesIndex;
+use App\Http\Livewire\BusDetails\BusDetailsIndex;
+use App\Http\Livewire\RoutesDetails\RoutesCreate;
+use App\Http\Livewire\BusDetails\BusDetailsCreate;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +32,6 @@ Route::get('/services/create', ServiceCreate::class)->name('services.create');
 
 Route::get('/bus-details', BusDetailsIndex::class)->name('bus-details');
 Route::get('/bus-details/create', BusDetailsCreate::class)->name('bus-details.create');
+
+Route::get('/route-details', RoutesIndex::class)->name('route-details');
+Route::get('/route-details/create', RoutesCreate::class)->name('route-details.create');
