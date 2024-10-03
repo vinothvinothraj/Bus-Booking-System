@@ -12,6 +12,9 @@
         <a href="{{ route('services') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
             Services
         </a>
+        <a href="{{ route('bus-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            Bus Details
+        </a>
 
     </nav>
 </div>

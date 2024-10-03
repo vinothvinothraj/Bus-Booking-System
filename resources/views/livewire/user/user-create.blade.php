@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="bg-white dark:bg-gray-800 max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 rounded-md">
+    <div class="bg-white dark:bg-gray-800 max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 rounded-md mt-8">
         <form wire:submit.prevent="submitForm">
             <div class="grid grid-cols-2 sm:grid-cols-2 gap-6">
                 <div class="col-span-1">

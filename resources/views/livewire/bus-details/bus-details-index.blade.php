@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Services') }}
+            {{ __('Bus Details') }}
         </h2>
     </x-slot>
 
@@ -11,9 +11,9 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <div class="flex justify-end mb-4">
                     
-                    <a href="{{ route('services.create') }}">
+                    <a href="{{ route('bus-details.create') }}">
                         <x-button>
-                            {{ __('Create Service') }}
+                            {{ __('Create Bus Details') }}
                         </x-button>
                     </a>
                 </div>
@@ -24,13 +24,16 @@
                         <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400" style="white-space: nowrap;">
                             <tr>
                                 <th scope="col" class="px-2 py-3">
-                                    Service Name
+                                    Bus Number
                                 </th>
                                 <th scope="col" class="px-2 py-3">
-                                    Description
+                                    Capacity
                                 </th>
                                 <th scope="col" class="px-2 py-3">
-                                    Price Per Seat
+                                    Driver
+                                </th>
+                                <th scope="col" class="px-2 py-3">
+                                    Bus Type
                                 </th>
                                 <th scope="col" class="px-2 py-3">
                                     Date and Time Created
@@ -41,16 +44,17 @@
                             </tr>
                         </thead>
                         <tbody class="text-start">
-                            @foreach($services as $service)
+                            @foreach($busDetails as $details)
                                 <tr class="px-2 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <td class="px-2 py-4">
-                                        {{ $service->name }}
+                                        {{ $details->bus_number }}
                                     </td>
                                     <td class="px-2 py-4">
-                                        {{ $service->description }}
+                                        {{ $details->capacity }}
                                     </td>
-                                    <td class="px-2 py-4">{{ $service->price_per_seat }}</td>
-                                    <td class="px-2 py-4">{{ $service->created_at }}</td>
+                                    <td class="px-2 py-4">{{ $details->driver_id }}</td>
+                                    <td class="px-2 py-4">{{ $details->bus_type }}</td>
+                                    <td class="px-2 py-4">{{ $details->created_at }}</td>
                                     <td class="px-2 py-4 flex items-center space-x-2 gap-4">
                                         <!-- Update Icon -->
                                         <a href="#" class="text-blue-500 hover:text-blue-700">
