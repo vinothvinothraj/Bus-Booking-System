@@ -9,6 +9,8 @@ use App\Http\Livewire\RoutesDetails\RoutesIndex;
 use App\Http\Livewire\BusDetails\BusDetailsIndex;
 use App\Http\Livewire\RoutesDetails\RoutesCreate;
 use App\Http\Livewire\BusDetails\BusDetailsCreate;
+use App\Http\Livewire\TimeSlotsDetails\TimeSlotIndex;
+use App\Http\Livewire\TimeSlotsDetails\TimeSlotCreate;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +37,6 @@ Route::get('/bus-details/create', BusDetailsCreate::class)->name('bus-details.cr
 
 Route::get('/route-details', RoutesIndex::class)->name('route-details');
 Route::get('/route-details/create', RoutesCreate::class)->name('route-details.create');
+
+Route::get('/time-slots-details', TimeSlotIndex::class)->name('time-slots-details');
+Route::get('/time-slots-details/create', TimeSlotCreate::class)->name('time-slots-details.create');
