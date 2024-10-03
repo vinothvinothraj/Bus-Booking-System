@@ -27,8 +27,10 @@ class ServiceCreate extends Component
             'price_per_seat' => $this->price_per_seat,
             'description' => $this->description,
         ]);
-
+        
         $this->resetForm();
+        return redirect('/services');
+        
     }
 
     public function goBack()
