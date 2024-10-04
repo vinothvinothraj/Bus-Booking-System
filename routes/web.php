@@ -17,6 +17,7 @@ use App\Http\Livewire\BusDetails\BusDetailsIndex;
 use App\Http\Livewire\RoutesDetails\RoutesCreate;
 use App\Http\Livewire\BookingDetails\BookingIndex;
 use App\Http\Livewire\BusDetails\BusDetailsCreate;
+use App\Http\Livewire\LandingPage\BookingNow;
 use App\Http\Livewire\PaymentDetails\PaymentIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotCreate;
@@ -31,6 +32,7 @@ Route::get('/time-slots', TimeSlot::class)->name('time-slots');
 Route::get('/service', Services::class)->name('service');
 Route::get('/about-us', About::class)->name('about-us');
 Route::get('/contact-us', Contact::class)->name('contact-us');
+Route::get('/booking-now', BookingNow::class)->name('booking-now');
 
 Route::middleware([
     'auth:sanctum',
