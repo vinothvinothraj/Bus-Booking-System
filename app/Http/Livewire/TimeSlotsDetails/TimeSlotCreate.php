@@ -5,48 +5,46 @@ namespace App\Http\Livewire\TimeSlotsDetails;
 use App\Models\Bus;
 use App\Models\TimeSlot;
 use Livewire\Component;
+use Carbon\Carbon;
+use Laravel\Jetstream\InteractsWithBanner;
 
 class TimeSlotCreate extends Component
 {
-
+    use InteractsWithBanner;
     public $startTime;
     public $endTime;
-
     public $date;
-
     public $buses;
-
     public $busId;
-
     public $availableSeats;
 
     protected $rules = [
-        'startTime' => 'required',
-        'endTime' => 'required',
-        'busId' => 'required',
-        'date' => 'required',
-        'availableSeats' => 'required',
+        'startTime' => 'required|date_format:H:i',
+        'endTime' => 'required|date_format:H:i',
+        'date' => 'required|date_format:Y-m-d',
+        'busId' => 'required|exists:buses,id',
+        'availableSeats' => 'required|integer|min:1',
     ];
 
-    public function mount(){
+    public function mount()
+    {
         $this->buses = Bus::all();
     }
 
     public function submitForm()
     {
         $this->validate();
-
-        $newTimeSlot = TimeSlot::create([
+        
+        TimeSlot::create([
             'start_time' => $this->startTime,
             'end_time' => $this->endTime,
-            'date' =>   $this->date,
+            'date' => $this->date,
             'bus_id' => $this->busId,
-            'available_seats' => $this->availableSeats
+            'available_seats' => $this->availableSeats,
         ]);
-        
+        $this->banner('Time Slot Created Successfully');
         $this->resetForm();
         return redirect('/time-slots-details');
-        
     }
 
     public function goBack()
