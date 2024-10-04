@@ -9,8 +9,38 @@
         <form wire:submit.prevent="submitForm">
             <div class="grid grid-cols-2 sm:grid-cols-2 gap-6">
                 
-                <x-wireui-datetime-picker wire:model.defer="incident_date" without-timezone
-                                        parse-format="YYYY-MM-DD" without-time placeholder="Date of the incident" />
+                <div class="col-span-1">
+                    <label for="date" class="block text-gray-700 dark:text-gray-300">Select Date</label>
+                    <x-date-picker 
+                        wire:model.defer="date" 
+                        without-timezone 
+                        parse-format="YYYY-MM-DD" 
+                        without-time 
+                        placeholder="Date of the Time Slot"
+                        class="w-full"
+                    />
+                    <x-input-error for="date" class="mt-2" />
+                </div>
+
+                <div class="col-span-1">
+                    <label for="startTime" class="block text-gray-700 dark:text-gray-300">Select Start Time</label>
+                    <x-time-picker 
+                        wire:model.defer="startTime" 
+                        placeholder="Time of the start time"
+                        class="w-full"
+                    />
+                    <x-input-error for="startTime" class="mt-2" />
+                </div>
+
+                <div class="col-span-1">
+                    <label for="endTime" class="block text-gray-700 dark:text-gray-300">Select End Time</label>
+                    <x-time-picker 
+                        wire:model.defer="endTime" 
+                        placeholder="Time of the end time"
+                        class="w-full"
+                    />
+                    <x-input-error for="endTime" class="mt-2" />
+                </div>
 
                 <div class="col-span-1">
                     <x-label for="busId" value="{{ __('Bus Number') }}" />
@@ -25,7 +55,7 @@
 
                 <div class="col-span-1">
                     <x-label for="availableSeats" value="{{ __('Available Seats') }}" />
-                    <x-input id="availableSeats" type="text" class="mt-1 block w-full" wire:model.defer="availableSeats" autocomplete="availableSeats" />
+                    <x-input id="availableSeats" type="number" class="mt-1 block w-full" wire:model.defer="availableSeats" autocomplete="availableSeats" />
                     <x-input-error for="availableSeats" class="mt-2" />
                 </div>
                 

@@ -4,9 +4,11 @@ namespace App\Http\Livewire\Services;
 
 use App\Models\Service;
 use Livewire\Component;
+use Laravel\Jetstream\InteractsWithBanner;
 
 class ServiceCreate extends Component
 {
+    use InteractsWithBanner;
 
     public $name;
     public $price_per_seat;
@@ -27,7 +29,7 @@ class ServiceCreate extends Component
             'price_per_seat' => $this->price_per_seat,
             'description' => $this->description,
         ]);
-        
+        $this->banner('Service Created Successfully');
         $this->resetForm();
         return redirect('/services');
         
