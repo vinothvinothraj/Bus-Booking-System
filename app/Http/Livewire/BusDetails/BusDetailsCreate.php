@@ -5,9 +5,10 @@ namespace App\Http\Livewire\BusDetails;
 use App\Models\Bus;
 use Livewire\Component;
 use App\Models\UserInformation;
-
+use Laravel\Jetstream\InteractsWithBanner;
 class BusDetailsCreate extends Component
 {
+    use InteractsWithBanner;
     public $busNumber;
 
     public $capacity;
@@ -49,7 +50,7 @@ class BusDetailsCreate extends Component
             'conductor_id' => $this->conductorId,
             'bus_type' => $this->busType,
         ]);
-        
+        $this->banner('Bus Details Created Successfully');
         $this->resetForm();
         return redirect('/bus-details');
         

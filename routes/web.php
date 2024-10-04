@@ -5,10 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\User\UserCreate;
 use App\Http\Livewire\Services\ServiceIndex;
 use App\Http\Livewire\Services\ServiceCreate;
+use App\Http\Livewire\PointsSytem\PointsIndex;
 use App\Http\Livewire\RoutesDetails\RoutesIndex;
 use App\Http\Livewire\BusDetails\BusDetailsIndex;
 use App\Http\Livewire\RoutesDetails\RoutesCreate;
+use App\Http\Livewire\BookingDetails\BookingIndex;
 use App\Http\Livewire\BusDetails\BusDetailsCreate;
+use App\Http\Livewire\PaymentDetails\PaymentIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotCreate;
 
@@ -40,3 +43,7 @@ Route::get('/route-details/create', RoutesCreate::class)->name('route-details.cr
 
 Route::get('/time-slots-details', TimeSlotIndex::class)->name('time-slots-details');
 Route::get('/time-slots-details/create', TimeSlotCreate::class)->name('time-slots-details.create');
+
+Route::get('/booking-details', BookingIndex::class)->name('booking-details');
+Route::get('/payment-details', PaymentIndex::class)->name('payment-details');
+Route::get('/point-system-details', PointsIndex::class)->name('point-system-details');

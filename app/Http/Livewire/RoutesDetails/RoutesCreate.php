@@ -6,10 +6,10 @@ use App\Models\Bus;
 use App\Models\Route;
 use App\Models\Service;
 use Livewire\Component;
-
+use Laravel\Jetstream\InteractsWithBanner;
 class RoutesCreate extends Component
 {
-
+    use InteractsWithBanner;
     public $departure;
     public $destination;
 
@@ -43,7 +43,7 @@ class RoutesCreate extends Component
             'bus_id' => $this->busId,
             'service_id' => $this->serviceId,
         ]);
-        
+        $this->banner('Route created successfully');
         $this->resetForm();
         return redirect('/route-details');
         
