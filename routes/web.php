@@ -3,7 +3,13 @@
 use App\Http\Livewire\User\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\User\UserCreate;
+use App\Http\Livewire\LandingPage\Home;
+use App\Http\Livewire\LandingPage\About;
+use App\Http\Livewire\LandingPage\Contact;
+use App\Http\Livewire\LandingPage\Services;
+use App\Http\Livewire\LandingPage\TimeSlot;
 use App\Http\Livewire\Services\ServiceIndex;
+use App\Http\Livewire\LandingPage\PointsCart;
 use App\Http\Livewire\Services\ServiceCreate;
 use App\Http\Livewire\PointsSytem\PointsIndex;
 use App\Http\Livewire\RoutesDetails\RoutesIndex;
@@ -15,9 +21,16 @@ use App\Http\Livewire\PaymentDetails\PaymentIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotIndex;
 use App\Http\Livewire\TimeSlotsDetails\TimeSlotCreate;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', Home::class)->name('home');
+Route::get('/points-cart', PointsCart::class)->name('points-cart');
+Route::get('/time-slots', TimeSlot::class)->name('time-slots');
+Route::get('/service', Services::class)->name('service');
+Route::get('/about-us', About::class)->name('about-us');
+Route::get('/contact-us', Contact::class)->name('contact-us');
 
 Route::middleware([
     'auth:sanctum',
