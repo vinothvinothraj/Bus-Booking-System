@@ -14,6 +14,7 @@ export default {
         "./resources/views/livewire/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -27,5 +28,9 @@ export default {
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [require(
+        'flowbite/plugin'),
+        forms,
+        typography
+    ],
 };
