@@ -22,5 +22,17 @@
             TimeSlot Details
         </a>
 
+        <a href="{{ route('booking-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            Booking Details
+        </a>
+
+        <a href="{{ route('payment-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            Payment Details
+        </a>
+
+        <a href="{{ route('point-system-details') }}" class="nav-item text-gray-600 dark:text-gray-400 block px-4 py-2 text-lg font-medium">
+            Points System
+        </a>
+
     </nav>
 </div>

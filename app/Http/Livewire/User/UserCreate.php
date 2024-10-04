@@ -6,10 +6,10 @@ use App\Models\User;
 use Livewire\Component;
 use App\Models\UserInformation;
 use Illuminate\Support\Facades\Hash;
-
+use Laravel\Jetstream\InteractsWithBanner;
 class UserCreate extends Component
 {
-
+    use InteractsWithBanner;
     public $first_name;
     public $last_name;
     public $email;
@@ -51,16 +51,10 @@ class UserCreate extends Component
             'loyalty_tier' => 'basic',
         ]);
 
-        
+        $this->banner('User Created Successfully');
         $this->resetForm();
-
-        // $this->notification()->send([
-        //     'icon' => 'info',
-        //     'title' => 'Success1',
-        //     'description' => 'User Created Successfully!',
-        // ]);
-
-        
+        return redirect('/users');
+   
     }
 
     public function goBack()
